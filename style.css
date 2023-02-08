@@ -1,0 +1,264 @@
+:root { 
+    --m-2: 2rem;
+}
+
+/* Reset */
+a, a:link, a:visited a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+*, 
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Typography */
+
+body {
+    font-family: 'Lora', serif;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body.show {
+    overflow-y: hidden;
+}
+
+
+/* Header */
+.header {
+    position: relative;
+    margin-bottom: 2rem;
+    background-color: #0096db;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__inner {
+    padding: 15px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.header__title {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.trigger-sync {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 50px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+
+/* Search box */
+
+.jl-search-box-input {
+    height: 65px;
+    font-size: 25px;
+}
+
+.ais-SearchBox-submitIcon {
+    display: none;
+}
+
+/* Container for hits & filters */
+
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    .main {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* Filters */
+
+.filters {
+    min-width: 25%;
+    margin-right: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+    .filters {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}
+
+.filter-block:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.filter-block h3 {
+    margin-bottom: 10px;
+}
+
+.jl-refinement-checkbox {
+    margin-right: 5px;
+}
+
+.jl-refinement-text {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.jl-clear-filters {
+    margin-bottom: 10px;
+}
+
+.jl-clear-filters-disabled {
+    display: none;
+
+}
+
+/* Results container */
+
+.results {
+    width: 100%;
+}
+
+
+/* Hits */
+
+.hits {
+    margin-bottom: var(--m-2);
+}
+
+/* Card */
+
+.recipe {
+    padding: 0px;
+    width: calc(33.33% - 1rem);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+    .recipe {
+        width: 100%;
+    }
+}
+
+
+.card__header {
+    min-height: 150px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.card__body {
+    padding: 15px;
+    padding-bottom: 20px;
+}
+
+.card__title {
+    margin-bottom: 10px;
+    line-height: 1;
+    text-transform: capitalize;
+}
+
+.card__ingredients {
+    font-size: 13px;
+    font-style: italic;
+}
+
+.card__time {
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card__icon {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+
+/* Add recipes area */
+
+.add {
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    padding: 2rem;
+    z-index: 3;
+    width: 400px;
+}
+
+.add.show {
+    display: block;
+}
+
+.add__title {
+    margin-bottom: 20px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    background-color: rgba(0,0,0, 0.7);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.overlay.show {
+    display: block;
+}
+
+
+/* Form */
+
+.form {
+    /* position: relative; */
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__group label {
+    margin-bottom: 2px;
+}
+
+.form__exit {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
