@@ -151,11 +151,17 @@ body.show {
 
 /* Card */
 
+
 .recipe {
     padding: 0px;
     width: calc(33.33% - 1rem);
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+}
+
+.recipe:hover .card__deleteBtn {
+    display: flex;
 }
 
 @media screen and (max-width: 500px) {
@@ -163,6 +169,24 @@ body.show {
         width: 100%;
     }
 }
+
+
+.card__deleteBtn {
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 
 
 .card__header {

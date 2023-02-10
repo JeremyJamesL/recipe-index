@@ -2,6 +2,7 @@
 import { openModal, closeModal } from './js/dom';
 const triggerBtn = document.querySelector('.trigger-sync');
 const exitBtn = document.querySelector('.form__exit');
+const resultsArea = document.querySelector('.results');
 
 /* Algolia */ 
 import { searchBox, hits, configure, refinementList, clearRefinements, pagination } from 'instantsearch.js/es/widgets';
@@ -11,10 +12,18 @@ import { search } from './js/algoliaSearch';
 import { onFormSubmit } from './js/addRecipe';
 const formSubmitBtn = document.querySelector('.form__submit');
 
+/* Delete Recipe */
+import { deleteRecipe } from './js/deleteRecipe';
+
 /* Event listeners */
 triggerBtn.addEventListener('click', openModal);
 exitBtn.addEventListener('click', closeModal);
 formSubmitBtn.addEventListener('click', onFormSubmit);
+resultsArea.addEventListener('click', function(e) {
+  if(e.target.classList.contains('card__deleteBtn')) {
+    deleteRecipe(e);
+  }
+})
 
 
 /* Widgets */
@@ -42,12 +51,11 @@ search.addWidgets([
       templates: {
         item(hit, { html, components, sendEvent}) {
             return html`
-            <a href="${hit.url}" target="_blank" onClick=${() => sendEvent('click', hit, 'Result clicked')}>
-            <article>
             
-              <div class="card__header" style="background-image: url(${hit.image});"}>
-
-              </div>
+            <article class="recipe_card">
+              <div class="card__deleteBtn">×</div>
+              <div class="card__header" style="background-image: url(${hit.image});"}></div>
+              <a href="${hit.url}" target="_blank" onClick=${() => sendEvent('click', hit, 'Result clicked')}>
               <div class="card__body">
               <h3 class="card__title">
                 ${components.Highlight({ attribute: 'title', hit})}
@@ -59,9 +67,8 @@ search.addWidgets([
 
               </div>
 
-
+              </a>
             </article>
-            </a>
             `
         }
       }

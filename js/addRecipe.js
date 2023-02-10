@@ -14,8 +14,8 @@ export const onFormSubmit = (e) => {
             "cuisine": `${elements[1].value.toLowerCase()}`,
             "primaryIngredients": ingredients,
             "mainCarb": `${elements[3].value.toLowerCase()}`,
-            "url": `${elements[4].value.toLowerCase()}`,
-            "image": `${elements[5].value.toLowerCase()}`,
+            "url": `${elements[4].value}`,
+            "image": `${elements[5].value}`,
             "time": `${elements[6].value.toLowerCase()}`
         }
     ]
